@@ -26,7 +26,7 @@ public class KafkaConfig {
     @Bean
     public KafkaAdmin admin() {
         Map<String, Object> configs = new HashMap<String, Object>();
-        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG,"192.168.180.128:9092");
+        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
         return new KafkaAdmin(configs);
     }
 
@@ -44,7 +44,7 @@ public class KafkaConfig {
     @Bean
     public Map<String, Object> producerConfigs() {
         Map<String, Object> props = new HashMap<String,Object>();
-        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.180.128:9092");
+        props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put("acks", "all");
         props.put("retries", 0);
         props.put("batch.size", 16384);
@@ -77,7 +77,7 @@ public class KafkaConfig {
     @Bean
     public Map<String,Object> consumerConfigs(){
         HashMap<String, Object> props = new HashMap<String, Object>();
-        props.put("bootstrap.servers", "192.168.180.128:9092");
+        props.put("bootstrap.servers", "localhost:9092");
         props.put("group.id", "test");
         props.put("enable.auto.commit", "true");
         props.put("auto.commit.interval.ms", "1000");
